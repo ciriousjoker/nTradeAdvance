@@ -1,0 +1,18 @@
+[package]
+name = "ntradeadvance"
+version = "0.1.0"
+authors = ["Philipp Bauer <ciriousjoker@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+ndless = "0.8.6"
+ndless-handler = "0.3.0"
+
+[package.metadata.zehn]
+name = "ntradeadvanced"
+compress = true
+notice = "Auto generated with cargo-generate"
+flags = "--240x320-support true"
+
+[profile.release]
+lto = true
