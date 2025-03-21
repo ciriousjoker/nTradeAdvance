@@ -1,2 +1,11 @@
+# Rust
 /target
 **/*.rs.bk
+
+# Mac os
+.DS_Store
+
+# Dummy saves
+*.sav
+
+/dist
