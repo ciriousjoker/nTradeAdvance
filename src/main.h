@@ -160,7 +160,7 @@ void drawLogo(nio_console *csl, int time)
 	nio_printf(csl, LogoString[0]);
 	nio_printf(csl, LogoString[1]);
 	
-	sleep(time);
+	msleep(time);
 	free(LogoString[0]);
 	free(LogoString[1]);
 	nio_color(csl,NIO_COLOR_BLACK,NIO_COLOR_WHITE);
@@ -215,7 +215,7 @@ void drawBye(nio_console *csl, int time)
 	nio_printf(csl, EndString[0]);
 	nio_printf(csl, EndString[1]);
 	
-	sleep(time);
+	msleep(time);
 	free(EndString[0]);
 	free(EndString[1]);
 	nio_color(csl,NIO_COLOR_BLACK,NIO_COLOR_WHITE);
