@@ -37,4 +37,5 @@ Currently nTrade Advanced confirmed to work on the following versions of Ndless
 - [My author page on ndless-apps.org](https://ndless-apps.org/authors/50)
 
 ## License
-This sourcecode is licensed under the [MIT license](LICENSE)
+
+The source code for [nTrade Advance](https://github.com/ciriousjoker/nTradeAdvance) © 2025 by Philipp Bauer is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
