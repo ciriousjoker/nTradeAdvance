@@ -1,10 +1,34 @@
-#![no_std]
+#![cfg_attr(feature = "calculator-build", no_std)]
 
+// Use ndless for calculator builds.
+#[cfg(feature = "calculator-build")]
+extern crate ndless;
+
+// Register the global allocator for calculator builds.
+#[cfg(feature = "calculator-build")]
 extern crate ndless_handler;
 
-use ndless::msg::msg;
-use ndless::prelude::*;
+mod assets;
+mod bindings;
+mod errors;
+mod navigator;
+mod platform;
+mod prelude;
+mod saves;
+mod ui;
+
+use crate::prelude::*;
 
 fn main() {
-	msg("Hello", "Hello, World!");
+    console::init_console();
+
+    // Create the navigator with the splash screen as the root screen.
+    let mut navigator = Navigator::new(Box::new(SplashScreen));
+    navigator.run();
+
+    // Before closing, show the exit screen.
+    let mut navigator = Navigator::new(Box::new(ExitScreen));
+    navigator.run();
+
+    console::dispose();
 }

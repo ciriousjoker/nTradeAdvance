@@ -1,18 +1,62 @@
 [package]
 name = "ntradeadvance"
-version = "0.1.0"
+version = "2.0.0"
 authors = ["Philipp Bauer <ciriousjoker@gmail.com>"]
-edition = "2018"
+edition = "2021"
+
+[[bin]]
+name = "ntradeadvance-mac"
+path = "src/main.rs"
+
+[[bin]]
+name = "ntradeadvance-linux"
+path = "src/main.rs"
+
+[[bin]]
+name = "ntradeadvance-windows"
+path = "src/main.rs"
+
+# Yes, the icons are intentionally not included as
+# they aren't covered by the repository's license, sry.
+# Build:
+#  - Mac OS -> cargo bundle
+#  - Linux -> cargo deb
+#  - Windows -> cargo build --release
+[package.metadata.bundle.bin.ntradeadvance-mac]
+name = "nTradeAdvance"
+identifier = "me.philippbauer.ntradeadvance"
+icon = ["private/icon/export/mac.icns"]
+short_description = "Trade Pokemon on your calculator (Mac OS edition)."
+
+
+# Windows is built via cross-rs, not cargo-bundle.
 
 [dependencies]
-ndless = "0.8.6"
-ndless-handler = "0.3.0"
+crossterm = { version = "0.28.1", optional = true }
+dirs = { version = "6.0.0", optional = true }
+ndless = { version = "0.8.8", optional = true }
+ndless-handler = { git = "https://github.com/ciriousjoker/ndless-rs", rev = "d04a94c54439131ace56a3052031b7ef7d599929", optional = true, package = "ndless-handler" }
+ndless-sys = { version = "0.2.0", optional = true }
+pkmn-savedata = { git = "https://codeberg.org/ciriousjoker/pkmn-savedata.git", rev = "5033974fda", default-features = false }
+serde = { version = "1.0", default-features = false, features = [
+  "derive",
+  "alloc",
+] }
+thiserror = { version = "2.0.12", default-features = false }
+
+[build-dependencies]
+embed-resource = "3.0.2"
 
 [package.metadata.zehn]
-name = "ntradeadvanced"
+name = "ntradeadvance"
 compress = true
-notice = "Auto generated with cargo-generate"
+notice = "A tool to trade Pokemon between two gen 3 games on the TI-Nspire."
 flags = "--240x320-support true"
+
+[features]
+default = ["calculator-build", "desktop"]
+desktop = ["dep:crossterm", "dep:dirs"]
+calculator-build = ["dep:ndless", "dep:ndless-sys", "dep:ndless-handler"]
 
 [profile.release]
 lto = true

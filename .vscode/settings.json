@@ -18,5 +18,12 @@
     "titleBar.inactiveBackground": "#ea000099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#ea0000"
+  "peacock.color": "#ea0000",
+  "rust-analyzer.diagnostics.enable": true,
+  "rust-analyzer.checkOnSave": true,
+  // Disable these to work on ndless-specific code.
+  // The drawback is that linter warnings break in the entire codebase:
+  // https://github.com/lights0123/ndless-rs/issues/12
+  "rust-analyzer.cargo.noDefaultFeatures": true,
+  "rust-analyzer.cargo.features": ["desktop"]
 }

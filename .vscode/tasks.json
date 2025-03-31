@@ -1,0 +1,42 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Ndless: Build",
+      "type": "shell",
+      // --release is always active, since debug builds somehow contain memory leaks that crash the calculator after a few usages
+      // even with a completely empty main function. --release builds work completely fine though.
+      "command": "cargo +nightly ndless build -- --no-default-features --features calculator-build --release",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": [
+          {
+            "regexp": ".",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          }
+        ],
+        "background": {
+          "beginsPattern": "Compiling",
+          "endsPattern": "Finished"
+        }
+      }
+    },
+    {
+      "label": "Ndless: Run",
+      "type": "shell",
+      "detail": "Builds and uploads to the calculator via n-link.",
+      // Get n-link from here: https://lights0123.com/n-link/
+      "command": "n-link upload ./target/armv5te-nspire-eabi/release/ntradeadvance.tns /",
+      "dependsOn": ["Ndless: Build"]
+    },
+    {
+      "label": "Desktop: Run",
+      "type": "shell",
+      "command": "cargo run --no-default-features --features desktop --bin ntradeadvance-mac"
+    }
+  ]
+}
