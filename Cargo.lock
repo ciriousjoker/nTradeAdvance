@@ -398,8 +398,8 @@ dependencies = [
 
 [[package]]
 name = "pkmn-savedata"
-version = "0.1.1"
-source = "git+https://codeberg.org/ciriousjoker/pkmn-savedata.git?rev=5033974fda#5033974fda8556964ac9929fe8d66e94eb03c461"
+version = "0.2.0"
+source = "git+https://codeberg.org/ciriousjoker/pkmn-savedata.git?rev=7c4ec607da5f1f991b937e9329d9c7bb4d8de183#7c4ec607da5f1f991b937e9329d9c7bb4d8de183"
 dependencies = [
  "no_std_io2",
  "num_enum",

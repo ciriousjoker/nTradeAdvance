@@ -37,7 +37,7 @@ dirs = { version = "6.0.0", optional = true }
 ndless = { version = "0.8.8", optional = true }
 ndless-handler = { git = "https://github.com/ciriousjoker/ndless-rs", rev = "d04a94c54439131ace56a3052031b7ef7d599929", optional = true, package = "ndless-handler" }
 ndless-sys = { version = "0.2.0", optional = true }
-pkmn-savedata = { git = "https://codeberg.org/ciriousjoker/pkmn-savedata.git", rev = "5033974fda", default-features = false }
+pkmn-savedata = { git = "https://codeberg.org/ciriousjoker/pkmn-savedata.git", rev = "7c4ec607da5f1f991b937e9329d9c7bb4d8de183", default-features = false }
 serde = { version = "1.0", default-features = false, features = [
   "derive",
   "alloc",
