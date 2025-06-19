@@ -4,7 +4,7 @@ A program for the [Ti-Nspire](https://education.ti.com/en/us/products/calculator
 
 Also available for Mac OS, Linux and Windows if you want to try it out.
 
-The original version from 2016 is still available on [this branch](../../tree/master).
+The original version from 2014 is still available on [this branch](../../tree/master).
 
 ## Screenshots
 
